@@ -1,0 +1,382 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: #2bbed1;
+  font-family: 'Belanosima', sans-serif;
+  font-size: 16px;
+  color: rgba(234, 239, 241, 0.867);
+  font-weight: 600;
+  height: 100vh;
+	display: grid;
+  grid-template-columns: 100%;
+	grid-template-rows: 2fr 2fr 10fr 1fr;
+	grid-template-areas:
+	"header"
+  "nav"
+	"main"
+	"footer";
+}
+
+a {
+  color: #fdfdfe;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 600;
+  text-shadow: 0px 0px 5px #0ebac7, 0px 0px 10px #0ebac7, 0px 0px 10px #0ebac7,
+    0px 0px 20px #0ebac7;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 1em;
+  max-width: 16em;
+  margin: 0;
+  padding: 0 40px;
+}
+
+header {
+  display: flex;
+  background-color:  #110670;
+  grid-area: header;
+  padding-top: 1vh;
+  text-align: center;
+}
+figure {
+  margin-top: 10px;
+}
+.dog-l {
+	position: relative;
+	width: 50px;
+	height: auto;
+	animation:  3s ease-out infinite;
+  
+}
+
+.dog-r {
+	position: relative;
+	width: 50px;
+	height: auto;
+	animation: animacion 3s ease-out infinite;
+  border-radius: 50px;
+}
+
+@keyframes animacion{
+	0% {
+		bottom: 0px; right: 0px;
+	}
+	25% {
+		bottom: 0px; right: 10px;
+	}
+	50% {
+		transform: rotate(-15deg); bottom: 20px; right: 10px;
+	}
+	75%{
+		transform: rotate(-15deg); bottom: 20px; right: 10px;
+	}
+	100%{
+		transform: rotate(0deg); bottom: 0px; right: 0px;
+	}
+}
+
+@keyframes animacionl {
+	0% {
+		transform: scale(-1,1); bottom: 0px; left: 0px;
+	}
+	25% {
+		transform: scale(-1,1) rotate(-15deg); bottom: 0px; left: 10px;
+	}
+	50% {
+		transform: scale(-1,1) rotate(-15deg); bottom: 20px; left: 10px;
+	}
+	75%{
+		transform: scale(-1,1) rotate(-15deg); bottom: 20px; left: 10px;
+	}
+	100%{
+		transform: scale(-1,1) rotate(0deg); bottom: 0px; left: 0px;
+	}
+}
+
+nav{
+  grid-area: nav;
+  background-color: #110670;
+  display: flex;
+  justify-content: center;
+}
+
+nav div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* MENU */
+
+.mdi-menu {
+  font-size: 30px;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
+}
+
+.menu {
+  visibility:hidden;
+  opacity:0;
+  display: flex;
+  gap: 3vw;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
+  padding-bottom: 20px;
+  list-style:none;
+}
+
+nav div:hover .menu {
+  visibility:visible;
+  opacity:1;
+}
+
+nav div:active .menu {
+  visibility:visible;
+  opacity:1;
+}
+
+nav div:hover span {
+  visibility:hidden;
+  opacity:0;
+}
+
+nav div:active span {
+  visibility:hidden;
+  opacity:0;
+}
+
+li  a:hover{
+  text-shadow: 0px 0px 5px #0ebac7, 0px 0px 10px #0ebac7, 0px 0px 10px #0ebac7,
+    0px 0px 20px #0ebac7;
+}
+
+main {
+  grid-area: main;
+}
+
+/* GALLERY  */
+
+.gallery {
+  grid-area: gallery;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  max-width: 1160px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  perspective: 1000px;
+  margin: auto; 
+}
+
+.container .box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #000;
+  transition: 0.5s;
+  overflow: hidden;
+  margin-right: 15px;
+  margin-top: 45px;
+}
+
+.container:hover .box {
+  transform: rotateY(25deg);
+}
+
+.container .box:hover  .box {
+  transform: rotateY(-25deg);
+}
+
+.container .box:hover {
+  transform: rotateY(0deg) scale(1.25);
+  z-index: 1;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+}
+
+.container .box .imgBx:hover {
+ filter: none;
+ 
+}
+
+.container .box .imgBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+}
+
+.container .box .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+/* footer*/
+
+footer {
+  grid-area: footer;
+	background-color:  #110670;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	text-align: left;
+	padding: 55px 50px;
+}
+
+footer .footer-left,
+footer .footer-center,
+footer .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+footer .footer-left{
+	width: 20%;
+}
+
+footer img{
+  width: 50%;
+  border-radius: 60px;
+}
+
+footer .footer-company-name{
+	color:  #0ebac7;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+footer .footer-center{
+	width: 35%;
+}
+
+footer .footer-center i{
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+footer .footer-center p{
+	display: inline-block;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+footer .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+footer .footer-center p a {
+	color:  #0ebac7;
+	text-decoration: none;;
+}
+
+footer .footer-right {
+	width: 20%;
+}
+
+footer .footer-company-about span {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+footer .footer-icons {
+	margin-top: 25px;
+}
+
+footer .footer-icons a {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #0ebac7;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+footer .footer-icons a i:hover{
+  font-size: 30px;
+}
+
+@media (max-width: 700px) {
+	footer{
+		font: bold 14px sans-serif;
+	}
+	footer .footer-left,
+	footer .footer-center,
+	footer .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+	footer .footer-center i{
+		margin-left: 0;
+	}
+}
+
+@media (min-width: 701px) {
+  body {
+    grid-template-columns: 1.5fr 10fr;
+    grid-template-rows: 2fr 10fr 2fr;
+    grid-template-areas:
+    "header header"
+    "nav main"
+    "footer footer";
+  }
+  header{
+    justify-content: center;
+  }
+  span {
+    display: none;
+  }
+  .menu {
+    position: fixed;
+    visibility:visible;
+    opacity:1;
+    flex-direction: column;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 273px) {
+	figure {
+    display: none;
+  }
+  header{
+    justify-content: center;
+  }
+}
